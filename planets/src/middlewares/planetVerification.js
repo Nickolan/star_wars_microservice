@@ -1,7 +1,7 @@
 const { ClientError } = require('../utils/errors')
 
 module.exports = (req, res, next) => {
-    const { planetName } = req.body;
-    if(planetName) return next()
-    else throw new ClientError('Error with planer name', 401)
+    const { name } = req.body;
+    if(name) return next()
+    else throw new ClientError('Error with planet name', 401)
 }

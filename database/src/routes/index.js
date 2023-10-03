@@ -19,8 +19,13 @@ router.get('/:model/:id', validateModel, async (req, res) => {
 router.post('/:model', validateModel, async (req, res) => {
     const { model } = req.params;
     const body = req.body;
-    const response = await store[model].insert(body);
-    res.status(200).json(response);
+    try {
+        const response = await store[model].insert(body);
+        res.status(200).json(response);
+        
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 module.exports = router;

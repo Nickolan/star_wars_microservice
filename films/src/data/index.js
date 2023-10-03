@@ -6,7 +6,12 @@ module.exports = {
         const response = await axios.get("http://database:8004/Film")
         return response.data
     },
-    create: async () =>{
-        throw Error('Hay un error al momento de crear la pelicula')
-    }
+    get: async (id) =>{
+        const response = await axios.get("http://database:8004/Film/" + id)
+        return response.data
+    },
+    create: async (film) =>{
+        const response = await axios.post("http://database:8004/Film", film);
+        return response.data
+    },
 }

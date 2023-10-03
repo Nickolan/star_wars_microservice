@@ -6,6 +6,8 @@ const router = Router();
 
 router.get('/', controllers.getCharacters)
 
+router.get('/:id', controllers.getOneCharacter)
+
 router.post('/', middlewares.characterValidation, controllers.createCharacter)
 
 module.exports = router
